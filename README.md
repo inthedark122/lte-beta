@@ -11,6 +11,7 @@ A beta trading platform deployment on a dedicated server using Kubernetes.
 | **Hostname** | `livtorgexbeta` |
 | **OS** | Ubuntu 24.04, x86_64 |
 | **Domain** | `trading.sinvoid.me` (Cloudflare) |
+| **Backtesting Disk** | `/dev/sdb1` mounted at `/home/backtesting` |
 
 ## SSH Connection
 
@@ -33,8 +34,22 @@ Organization: https://github.com/LivTorgEx
 - **Orchestration:** Kubernetes (k8s) + k9s
 - **Registry:** Nexus (`docker.nexus.livtorgex.com`)
 - **Monitoring:** SigNoz
-- **Exchange:** OKX
+- **Exchange:** OKX, BingX
 - **Domain:** `trading.sinvoid.me` via Cloudflare DNS
+
+## Exchange Server Info
+
+| Exchange | Server |
+|---|---|
+| `BingX` | `trading.sinvoid.me` |
+
+## Storage Layout
+
+| Mount | Device | Size | Purpose |
+|---|---|---:|---|
+| `/` | `/dev/sda3` | `503G` | OS, k3s, container runtime |
+| `/home` | `/dev/sda4` | `3.1T` | user home and general data |
+| `/home/backtesting` | `/dev/sdb1` | `3.6T` | dedicated backtesting storage |
 
 ## Services
 
@@ -134,7 +149,7 @@ DATABASE_URL=postgres://trading:<POSTGRES_PASSWORD>@localhost:5432/trading
 RABBIT_MQ_ADDR=amqp://admin:<RABBITMQ_DEFAULT_PASS>@localhost:5672/%2f
 PROJECTION_RPC=localhost:50153
 
-EXCHANGE_NAME=Binance
+EXCHANGE_NAME=Binance # or BingX / OKX
 COMPANY_CODE=LIVTORGEX
 SERVER_NAME=main
 

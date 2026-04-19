@@ -61,7 +61,7 @@ The workspace has ~21 crates. Key groupings:
 | `migration/` | Database schema migrations |
 | `proto/`, `stream_schema/` | Protobuf definitions and stream schemas |
 | `lte_rabbitmq/` | RabbitMQ client wrapper |
-| `libs/lte_exchange/` | Exchange API abstraction (OKX, Binance) |
+| `libs/lte_exchange/` | Exchange API abstraction (OKX, Binance, BingX) |
 | `libs/ta-rs/` | Technical analysis library (git submodule) |
 
 **Async runtime:** tokio. **ORM:** SEA-ORM + PostgreSQL. **Messaging:** RabbitMQ (lapin) + gRPC (tonic). **Serialization:** serde/serde_json. **Numerics:** `bigdecimal`, `rust_decimal`, `ordered-float`.
@@ -81,7 +81,7 @@ The worker services read all config from `.env`. To run locally against the live
 
 2. Create `.env` in `trading-platform-rust/` (see `.env.example`). Key variables:
    - `DATABASE_URL`, `RABBIT_MQ_ADDR`, `PROJECTION_RPC`
-   - `EXCHANGE_NAME` (Binance or OKX), `COMPANY_CODE`, `SERVER_NAME`
+   - `EXCHANGE_NAME` (Binance, OKX, or BingX), `COMPANY_CODE`, `SERVER_NAME`
    - `EXCHANGE_API`, `EXCHANGE_WS`, `EXCHANGE_SECRET_KEY`
    - `TELOXIDE_TOKEN` (Telegram bot)
 
@@ -112,4 +112,4 @@ kubectl exec -n livtorgex $(kubectl get pod -n livtorgex -l app.kubernetes.io/na
 The platform supports multiple deployment instances. Key env vars that differentiate them:
 - `COMPANY_CODE`: `LIVTORGEX`, `AIWE`, `ZEMAN`
 - `SERVER_NAME`: `main`, `simulation`, `alpha`
-- `EXCHANGE_NAME`: `Binance`, `OKX`
+- `EXCHANGE_NAME`: `Binance`, `OKX`, `BingX`
