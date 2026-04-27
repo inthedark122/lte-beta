@@ -32,7 +32,7 @@ Organization: https://github.com/LivTorgEx
 ## Stack
 
 - **Orchestration:** Kubernetes (k8s) + k9s
-- **Registry:** Nexus (`docker.nexus.livtorgex.com`)
+- **Registry:** AWS ECR (`915204716415.dkr.ecr.ap-northeast-1.amazonaws.com`)
 - **Monitoring:** SigNoz
 - **Exchange:** OKX, BingX
 - **Domain:** `trading.sinvoid.me` via Cloudflare DNS

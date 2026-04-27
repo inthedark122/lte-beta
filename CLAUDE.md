@@ -43,7 +43,7 @@ sea-orm-cli generate entity -o models/src/entities --with-serde both  # regenera
 ./scripts/build_and_k8s_deploy.sh [binary_name]   # git pull → build → push to Nexus → k8s rollout
 ```
 
-GitHub Actions (`.github/workflows/build-and-deploy.yaml`) handles multi-arch (amd64/arm64) Docker builds and pushes to `docker.nexus.livtorgex.com`.
+GitHub Actions (`.github/workflows/release-build-deploy.yaml`) handles multi-arch (amd64/arm64) Docker builds and pushes to `915204716415.dkr.ecr.ap-northeast-1.amazonaws.com/livtorgex/`.
 
 ## Architecture
 

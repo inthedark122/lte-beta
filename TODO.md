@@ -15,7 +15,7 @@
 
 - [x] Add GitHub SSH deploy key to server
 - [x] Clone `trading-platform-rust` repo + submodules (dev branch, `/opt/trading/trading-platform-rust`)
-- [x] Login to Nexus Docker registry (`docker.nexus.livtorgex.com`)
+- [x] Authenticate Docker with AWS ECR (`915204716415.dkr.ecr.ap-northeast-1.amazonaws.com`)
 - [x] Build all service Docker images
 - [x] Push images to Nexus registry
 
